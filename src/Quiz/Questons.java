@@ -2,7 +2,7 @@ package Quiz;
 
 public class Questons {
 	
-    public static String[][] getQuestions() {
+    public static String[][] getJautajumi() {
         return new String[][]{
             {"Kā pareizi deklarēt divdimensiju masīvu Java?"},
             {"Kādas metodes var izmantot, lai inicializētu 3x3 divdimensiju masīvu Java?"},
@@ -17,7 +17,7 @@ public class Questons {
         };
     }
     
-    public static char[][] getAnswers() {
+    public static char[][] getAtbildes() {
         return new char[][]{
             {'1', '4'},
             {'1', '3'},

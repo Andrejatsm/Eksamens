@@ -1,7 +1,7 @@
 package Quiz;
 
 public class Awnsers {
-    public static String[][] getOptions() {
+    public static String[][] getIzveles() {
         return new String[][]{
             {"int[][] arr = new int[5][5];", "int[] arr = new int[5][5];", "int[][] arr = new int[5, 5];", "int arr[][] = new int[5][5];"},
             {"int[][] arr = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };", "int[][] arr = new int[3][3]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};", "int[][] arr = new int[3][3];", "int arr[][] = new int[3][3]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};"},
