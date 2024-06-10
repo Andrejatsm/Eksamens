@@ -2,8 +2,8 @@ package Quiz;
 
 public class Awnsers {
 
-	public static void main(String[] args) {
-		
-		String[][] Izveles = {};
-		}
+    public static void main(String[] args) {
+        
+    	
+    }
 }
