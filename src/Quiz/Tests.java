@@ -8,26 +8,25 @@ public class Tests implements ActionListener {
     String[] Jautajumi;
     String[][] Izveles;
     char[][] Atbildes;
-    char guess;
     int index;
     int correct_guesses = 0;
     int total_questions;
     int result;
-    int seconds = 10;
 
     JFrame frame = new JFrame();
     JTextField textfield = new JTextField();
     JTextArea textarea = new JTextArea();
-    JButton buttonA = new JButton();
-    JButton buttonB = new JButton();
-    JButton buttonC = new JButton();
-    JButton buttonD = new JButton();
+    JCheckBox checkboxA = new JCheckBox();
+    JCheckBox checkboxB = new JCheckBox();
+    JCheckBox checkboxC = new JCheckBox();
+    JCheckBox checkboxD = new JCheckBox();
     JLabel answer_labelA = new JLabel();
     JLabel answer_labelB = new JLabel();
     JLabel answer_labelC = new JLabel();
     JLabel answer_labelD = new JLabel();
     JTextField number_right = new JTextField();
     JTextField percentage = new JTextField();
+    JButton proceedButton = new JButton("Turpināt");
 
     public Tests() {
         Jautajumi = new String[Questons.getJautajumi().length];
@@ -53,7 +52,7 @@ public class Tests implements ActionListener {
         textfield.setHorizontalAlignment(JTextField.CENTER);
         textfield.setEditable(false);
 
-        textarea.setBounds(0, 53, 834, 64);
+        textarea.setBounds(0, 59, 834, 64);
         textarea.setLineWrap(true);
         textarea.setWrapStyleWord(true);
         textarea.setBackground(new Color(25, 25, 25));
@@ -62,48 +61,44 @@ public class Tests implements ActionListener {
         textarea.setBorder(BorderFactory.createBevelBorder(1));
         textarea.setEditable(false);
 
-        buttonA.setBounds(0, 128, 100, 100);
-        buttonA.setFont(new Font("Copperplate Gothic Light", Font.BOLD, 35));
-        buttonA.setFocusable(false);
-        buttonA.addActionListener(this);
-        buttonA.setText("1.");
+        checkboxA.setBounds(35, 159, 21, 34);
+        checkboxA.setFont(new Font("Copperplate Gothic Light", Font.BOLD, 35));
+        checkboxA.setFocusable(false);
+        checkboxA.addActionListener(this);
 
-        buttonB.setBounds(0, 239, 100, 100);
-        buttonB.setFont(new Font("Copperplate Gothic Light", Font.BOLD, 35));
-        buttonB.setFocusable(false);
-        buttonB.addActionListener(this);
-        buttonB.setText("2.");
+        checkboxB.setBounds(35, 275, 21, 34);
+        checkboxB.setFont(new Font("Copperplate Gothic Light", Font.BOLD, 35));
+        checkboxB.setFocusable(false);
+        checkboxB.addActionListener(this);
 
-        buttonC.setBounds(0, 350, 100, 100);
-        buttonC.setFont(new Font("Copperplate Gothic Light", Font.BOLD, 35));
-        buttonC.setFocusable(false);
-        buttonC.addActionListener(this);
-        buttonC.setText("3.");
+        checkboxC.setBounds(35, 383, 21, 34);
+        checkboxC.setFont(new Font("Copperplate Gothic Light", Font.BOLD, 35));
+        checkboxC.setFocusable(false);
+        checkboxC.addActionListener(this);
 
-        buttonD.setBounds(0, 461, 100, 100);
-        buttonD.setFont(new Font("Copperplate Gothic Light", Font.BOLD, 35));
-        buttonD.setFocusable(false);
-        buttonD.addActionListener(this);
-        buttonD.setText("4.");
+        checkboxD.setBounds(35, 493, 21, 34);
+        checkboxD.setFont(new Font("Copperplate Gothic Light", Font.BOLD, 35));
+        checkboxD.setFocusable(false);
+        checkboxD.addActionListener(this);
 
-        answer_labelA.setBounds(125, 128, 687, 100);
+        answer_labelA.setBounds(125, 147, 687, 64);
         answer_labelA.setBackground(new Color(50, 50, 50));
-        answer_labelA.setForeground(new Color(25, 255, 0));
+        answer_labelA.setForeground(Color.BLACK);
         answer_labelA.setFont(new Font("NSimSun", Font.PLAIN, 20));
 
-        answer_labelB.setBounds(125, 239, 687, 100);
+        answer_labelB.setBounds(125, 258, 687, 64);
         answer_labelB.setBackground(new Color(50, 50, 50));
-        answer_labelB.setForeground(new Color(25, 255, 0));
+        answer_labelB.setForeground(Color.BLACK);
         answer_labelB.setFont(new Font("NSimSun", Font.PLAIN, 20));
 
-        answer_labelC.setBounds(125, 350, 687, 100);
+        answer_labelC.setBounds(125, 475, 687, 64);
         answer_labelC.setBackground(new Color(50, 50, 50));
-        answer_labelC.setForeground(new Color(25, 255, 0));
+        answer_labelC.setForeground(Color.BLACK);
         answer_labelC.setFont(new Font("NSimSun", Font.PLAIN, 20));
 
-        answer_labelD.setBounds(125, 461, 687, 100);
+        answer_labelD.setBounds(125, 368, 687, 64);
         answer_labelD.setBackground(new Color(50, 50, 50));
-        answer_labelD.setForeground(new Color(25, 255, 0));
+        answer_labelD.setForeground(Color.BLACK);
         answer_labelD.setFont(new Font("NSimSun", Font.PLAIN, 20));
 
         number_right.setBounds(225, 225, 200, 100);
@@ -121,16 +116,24 @@ public class Tests implements ActionListener {
         percentage.setBorder(BorderFactory.createBevelBorder(1));
         percentage.setHorizontalAlignment(JTextField.CENTER);
         percentage.setEditable(false);
+
+        proceedButton.setBounds(335, 550, 117, 34);
+        proceedButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        proceedButton.setFocusable(false);
+        proceedButton.addActionListener(this);
+        proceedButton.setEnabled(false);
+
         frame.getContentPane().add(answer_labelA);
         frame.getContentPane().add(answer_labelB);
         frame.getContentPane().add(answer_labelC);
         frame.getContentPane().add(answer_labelD);
-        frame.getContentPane().add(buttonA);
-        frame.getContentPane().add(buttonB);
-        frame.getContentPane().add(buttonC);
-        frame.getContentPane().add(buttonD);
+        frame.getContentPane().add(checkboxA);
+        frame.getContentPane().add(checkboxB);
+        frame.getContentPane().add(checkboxC);
+        frame.getContentPane().add(checkboxD);
         frame.getContentPane().add(textarea);
         frame.getContentPane().add(textfield);
+        frame.getContentPane().add(proceedButton);
 
         // This makes the frame visible when show() is called
         frame.setVisible(false);
@@ -152,120 +155,101 @@ public class Tests implements ActionListener {
             answer_labelB.setText(Izveles[index][1]);
             answer_labelC.setText(Izveles[index][2]);
             answer_labelD.setText(Izveles[index][3]);
+            
+            // Reset checkboxes
+            checkboxA.setSelected(false);
+            checkboxB.setSelected(false);
+            checkboxC.setSelected(false);
+            checkboxD.setSelected(false);
+
+            // Enable the "Proceed" button only when at least two questions are selected
+            proceedButton.setEnabled(false);
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        buttonA.setEnabled(false);
-        buttonB.setEnabled(false);
-        buttonC.setEnabled(false);
-        buttonD.setEnabled(false);
+        if (e.getSource() == proceedButton) {
+            // Proceed button clicked
+            char[] correctAnswers = Atbildes[index];
+            int correctCount = 0;
+            if (checkboxA.isSelected() && contains(correctAnswers, '1')) correctCount++;
+            if (checkboxB.isSelected() && contains(correctAnswers, '2')) correctCount++;
+            if (checkboxC.isSelected() && contains(correctAnswers, '3')) correctCount++;
+            if (checkboxD.isSelected() && contains(correctAnswers, '4')) correctCount++;
 
-        boolean correct = false;
-        char selectedAnswer = ' ';
-
-        if (e.getSource() == buttonA) {
-            selectedAnswer = 'A';
-        }
-        if (e.getSource() == buttonB) {
-            selectedAnswer = 'B';
-        }
-        if (e.getSource() == buttonC) {
-            selectedAnswer = 'C';
-        }
-        if (e.getSource() == buttonD) {
-            selectedAnswer = 'D';
-        }
-
-        for (char correctAnswer : Atbildes[index]) {
-            if (selectedAnswer == correctAnswer) {
-                correct = true;
+            if (correctCount >= 2) {
                 correct_guesses++;
-                break;
+            } else {
+                JOptionPane.showMessageDialog(frame, "Incorrect. The correct answers are: " + getCorrectAnswersText(correctAnswers), "Feedback", JOptionPane.ERROR_MESSAGE);
             }
-        }
 
-        if (!correct) {
-            displayAnswer();
+            index++;
+            nextQuestion();
         } else {
-            answer_labelA.setForeground(Color.GREEN);
-            answer_labelB.setForeground(Color.GREEN);
-            answer_labelC.setForeground(Color.GREEN);
-            answer_labelD.setForeground(Color.GREEN);
-            Timer pause = new Timer(2000, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    answer_labelA.setForeground(new Color(25, 255, 0));
-                    answer_labelB.setForeground(new Color(25, 255, 0));
-                    answer_labelC.setForeground(new Color(25, 255, 0));
-                    answer_labelD.setForeground(new Color(25, 255, 0));
+            // Checkbox clicked
+            int selectedCount = 0;
+            if (checkboxA.isSelected()) selectedCount++;
+            if (checkboxB.isSelected()) selectedCount++;
+            if (checkboxC.isSelected()) selectedCount++;
+            if (checkboxD.isSelected()) selectedCount++;
 
-
-                    buttonA.setEnabled(true);
-                    buttonB.setEnabled(true);
-                    buttonC.setEnabled(true);
-                    buttonD.setEnabled(true);
-                    index++;
-                    nextQuestion();
-                }
-            });
-            pause.setRepeats(false);
-            pause.start();
+            proceedButton.setEnabled(selectedCount >= 2);
         }
-    }
-
-    public void displayAnswer() {
-
-        if (Atbildes[index][0] != 'A')
-            answer_labelA.setForeground(new Color(255, 0, 0));
-        if (Atbildes[index][0] != 'B')
-            answer_labelB.setForeground(new Color(255, 0, 0));
-        if (Atbildes[index][0] != 'C')
-            answer_labelC.setForeground(new Color(255, 0, 0));
-        if (Atbildes[index][0] != 'D')
-            answer_labelD.setForeground(new Color(255, 0, 0));
-
-        Timer pause = new Timer(2000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                answer_labelA.setForeground(new Color(25, 255, 0));
-                answer_labelB.setForeground(new Color(25, 255, 0));
-                answer_labelC.setForeground(new Color(25, 255, 0));
-                answer_labelD.setForeground(new Color(25, 255, 0));
-
-
-                buttonA.setEnabled(true);
-                buttonB.setEnabled(true);
-                buttonC.setEnabled(true);
-                buttonD.setEnabled(true);
-                index++;
-                nextQuestion();
-            }
-        });
-        pause.setRepeats(false);
-        pause.start();
     }
 
     public void results() {
-        buttonA.setEnabled(false);
-        buttonB.setEnabled(false);
-        buttonC.setEnabled(false);
-        buttonD.setEnabled(false);
+ 
+        checkboxA.setVisible(false);
+        checkboxB.setVisible(false);
+        checkboxC.setVisible(false);
+        checkboxD.setVisible(false);
+        answer_labelA.setVisible(false);
+        answer_labelB.setVisible(false);
+        answer_labelC.setVisible(false);
+        answer_labelD.setVisible(false);
 
+        // Display results
         result = (int) ((correct_guesses / (double) total_questions) * 100);
-
         textfield.setText("RESULTS!");
         textarea.setText("");
-        answer_labelA.setText("");
-        answer_labelB.setText("");
-        answer_labelC.setText("");
-        answer_labelD.setText("");
-
         number_right.setText("(" + correct_guesses + "/" + total_questions + ")");
         percentage.setText(result + "%");
 
         frame.getContentPane().add(number_right);
         frame.getContentPane().add(percentage);
+
+        proceedButton.setText("Beigt");
+        proceedButton.setEnabled(true);
+        proceedButton.removeActionListener(this);
+        proceedButton.addActionListener(e -> frame.dispose());
+    }
+
+    private boolean contains(char[] array, char value) {
+        for (char c : array) {
+            if (c == value) return true;
+        }
+        return false;
+    }
+
+    private String getCorrectAnswersText(char[] correctAnswers) {
+        StringBuilder correctText = new StringBuilder();
+        for (char answer : correctAnswers) {
+            switch (answer) {
+                case '1':
+                    correctText.append("1. ");
+                    break;
+                case '2':
+                    correctText.append("2. ");
+                    break;
+                case '3':
+                    correctText.append("3. ");
+                    break;
+                case '4':
+                    correctText.append("4. ");
+                    break;
+            }
+        }
+        return correctText.toString().trim();
     }
 }
