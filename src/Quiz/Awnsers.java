@@ -4,6 +4,6 @@ public class Awnsers {
 
 	public static void main(String[] args) {
 		
-		String[][] Atbildes = {};
+		String[][] Izveles = {};
 		}
 }

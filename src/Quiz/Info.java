@@ -106,11 +106,9 @@ public class Info extends JFrame {
                 String name = vards.getText().trim();
                 String surname = uzvards.getText().trim();
 
-                
                 if (!name.isEmpty() && !surname.isEmpty()) {
-                 
                     Tests screen = new Tests();
-                    screen.setVisible(true);
+                    screen.show(); 
                     dispose(); 
                 } else {
                     JOptionPane.showMessageDialog(Info.this, "Lūdzu, aizpildi visus lodziņus.");
@@ -123,7 +121,6 @@ public class Info extends JFrame {
         uzvards.getDocument().addDocumentListener(new CustomDocumentListener());
     }
 
-   
     private class CustomDocumentListener implements DocumentListener {
         @Override
         public void insertUpdate(DocumentEvent e) {

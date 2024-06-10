@@ -6,6 +6,13 @@ public class Questons {
 		
 
 		String[][] Jautajumi = {};
+		
+		
+		char[] Atbildes = { '1',
+							'2',
+							'3',
+							'4'
+		};
 	}
 
 }
