@@ -194,7 +194,7 @@ public class Tests implements ActionListener {
             if (checkboxC.isSelected()) selectedCount++;
             if (checkboxD.isSelected()) selectedCount++;
 
-            proceedButton.setEnabled(selectedCount >= 2);
+            proceedButton.setEnabled(selectedCount >= 2 && selectedCount != 3);
         }
     }
 
